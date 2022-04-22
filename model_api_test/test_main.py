@@ -1,9 +1,7 @@
 from fastapi.testclient import TestClient
 
-# from model_api.main import app
-
 import sys
-sys.path.append('./../model_api')
+sys.path.append('./..')
 from main import app
 
 client = TestClient(app)
