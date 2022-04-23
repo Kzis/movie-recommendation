@@ -39,7 +39,7 @@ def get_movie_recommendation(movie_id_suggestion):
     
 def get_movie_recommendation_with_metadata(movie_id_suggestion):
     dict_movies = setting.get_dict_movies()
-    response = []
+    items_list = []
     for movie_id in movie_id_suggestion:
         dict_description = dict_movies[str(movie_id)]
         title = dict_description['title']
@@ -49,5 +49,6 @@ def get_movie_recommendation_with_metadata(movie_id_suggestion):
                 "title":title,
                 "genres": genres
             }
-        response.append(item)
+        items_list.append(item)
+    response = {"items": items_list}
     return response
