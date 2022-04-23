@@ -2,10 +2,11 @@ from fastapi import FastAPI
 import setting
 import uvicorn
 
-from model_api import recommendations
+from model_api import recommendations , features
 
 app = FastAPI()
 app.include_router(recommendations.router)
+app.include_router(features.router)
 
 setting.init_global_data()
 
