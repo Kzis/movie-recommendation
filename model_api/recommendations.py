@@ -9,48 +9,19 @@ router = APIRouter(
     responses={404: {"message": "Not found"}}
 )
 
-recommendations_db = [
-    {
-        "title": "The C Programming",
-        "test": 1236
-    },
-    {
-        "title": "Learn Python the Hard Way",
-        "test": 4566
-    }
-]
-
-# @router.get("/")
-# def get_recommendations(user_id: Optional[int] = None, returnMetadata: Optional[bool] = None):
-#     recommendations = {}
-#     if user_id :
-#         recommendations.update({"user_id": user_id})
-#         if returnMetadata:
-#             recommendations.update({"meta_data": returnMetadata})
-#             recommendations.update({"meta_data_desc": "This is the meta_data"})
-#         else:
-#             print("x")
-#     else:
-#         recommendations.update({"desciption": "user_id is required"})
-
-#     return recommendations
-
 @router.get("/")
 def get_recommendations(user_id: Optional[int] = None, returnMetadata: Optional[bool] = None):
     response = {}
     try:
-
         if user_id :
             model_utils = ModelUtils()
             movie_id_suggestion = model_utils.read_model(user_id)
             if returnMetadata:
                 response = get_movie_recommendation_with_metadata(movie_id_suggestion)
             else:
-                response = get_movie_recommendation(movie_id_suggestion)
-                
+                response = get_movie_recommendation(movie_id_suggestion)  
         else:
             response = {"desciption": "user_id is required"}
-            print("")
             
     except Exception as err:
         print(err)
