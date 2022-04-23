@@ -7,10 +7,11 @@ from model_api import recommendations
 app = FastAPI()
 app.include_router(recommendations.router)
 
+setting.init_global_data()
+
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
 
 if __name__ == "__main__":
-    setting.init_global_data()
     uvicorn.run(app, host="0.0.0.0", port=8000 , reload=True)

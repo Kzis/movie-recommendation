@@ -6,7 +6,7 @@ from os import path
 UP_PATH = Path(__file__).parents[1]
 file_path = path.join(UP_PATH, "data\\movielens_small_main\\")
 
-class CSV_Utility:
+class CSVUtils:
     
     @staticmethod
     def read_movies():
