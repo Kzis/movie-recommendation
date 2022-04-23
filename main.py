@@ -2,7 +2,10 @@ from fastapi import FastAPI
 import setting
 import uvicorn
 
+from model_api import recommendations
+
 app = FastAPI()
+app.include_router(recommendations.router)
 
 @app.get("/")
 async def root():
