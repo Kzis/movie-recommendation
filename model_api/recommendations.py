@@ -12,10 +12,15 @@ router = APIRouter(
 @router.get("/")
 def get_recommendations(user_id: Optional[int] = None, returnMetadata: Optional[bool] = None):
     response = {}
+    # print("===================")
+    # print("get_recommendations")
+    # print("user id : ",user_id)
+    # print("returnMetadata id : ",returnMetadata)
     try:
         if user_id :
             model_utils = ModelUtils()
             movie_id_suggestion = model_utils.read_model(user_id)
+            movie_id_suggestion = [int(movie_id_float) for movie_id_float in movie_id_suggestion]
             if returnMetadata:
                 response = get_movie_recommendation_with_metadata(movie_id_suggestion)
             else:
@@ -38,6 +43,10 @@ def get_movie_recommendation(movie_id_suggestion):
     return response
     
 def get_movie_recommendation_with_metadata(movie_id_suggestion):
+    # print("================")
+    # print("get_movie_recommendation_with_metadata")
+    # print("movie_id_suggestion :" , movie_id_suggestion)
+    
     dict_movies = setting.get_dict_movies()
     items_list = []
     for movie_id in movie_id_suggestion:

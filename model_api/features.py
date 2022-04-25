@@ -42,8 +42,8 @@ def get_features(user_id: Optional[int] = None):
             histories = {"histories":features_list}
             histories_list.append(histories)
             response = {"features":histories_list}
-            print(len(features_list))
-            print(features_list)
+            # print(len(features_list))
+            # print(features_list)
         else:
             response = {"desciption": "user_id is required"}
     except Exception as err:

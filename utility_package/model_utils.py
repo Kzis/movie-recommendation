@@ -6,9 +6,9 @@ class ModelUtils:
     
     @staticmethod
     def read_model(user_id):
-        print("===================")
-        print("read_model")
-        model_recommend = [74510,76175]
+        # print("===================")
+        # print("read_model")
+        # model_recommend = [74510,76175]
         
         ratings = setting.get_ratings_df()
         movies = setting.get_movies_df()
@@ -31,6 +31,6 @@ class ModelUtils:
                                       item_dict = movies_dict, 
                                       threshold = 4, 
                                       nrec_items = 10,
-                                      show = True)
-        print(rec_list)
-        return model_recommend 
+                                      show = False)
+        # print(rec_list)
+        return rec_list 
