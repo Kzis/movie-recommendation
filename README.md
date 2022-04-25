@@ -97,5 +97,7 @@ There are many things to improve for this project.
    locust -f loadtest.py --host=http://localhost:8000
    ```
   Go to http://localhost:8089/ for loadtest
+  
+3. This project have a loggin in middleware you will see in console when call API for reponse time , request parameter and response parameter.
  
   
