@@ -11,7 +11,7 @@ class CSVUtils:
     @staticmethod
     def read_movies():
         dict_movie = {}
-        with open(file_path + 'movies.csv', newline='') as csvfile:
+        with open(file_path + 'movies.csv', newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 dict_movie[row["movieId"]] = {
@@ -23,7 +23,7 @@ class CSVUtils:
     @staticmethod
     def read_links():
         dict_links = {}
-        with open(file_path + 'links.csv', newline='') as csvfile:
+        with open(file_path + 'links.csv', newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 dict_links[row["movieId"]] = {
@@ -34,24 +34,24 @@ class CSVUtils:
         
     @staticmethod
     def read_ratings(userId):
-        with open(file_path + 'ratings.csv', newline='') as csvfile:
+        with open(file_path + 'ratings.csv', newline='', encoding='utf-8') as csvfile:
             df = pd.read_csv(csvfile)
             df_ratings = df[ df["userId"] == userId]
             return [int(ele) for ele in df_ratings.movieId.to_list()]    
         
     @staticmethod
     def read_tags(userId):
-        with open(file_path + 'tags.csv', newline='') as csvfile:
+        with open(file_path + 'tags.csv', newline='', encoding='utf-8') as csvfile:
             df = pd.read_csv(csvfile)
             df_tags = df[ df["userId"] == userId]
             return [int(ele) for ele in df_tags.movieId.to_list()]  
         
     @staticmethod
     def read_ratings_df():
-        ratings = pd.read_csv(file_path + 'ratings.csv')
+        ratings = pd.read_csv(file_path + 'ratings.csv', encoding='utf-8')
         return ratings
     
     @staticmethod
     def read_movies_df():
-        movies = pd.read_csv(file_path + 'movies.csv')
+        movies = pd.read_csv(file_path + 'movies.csv', encoding='utf-8')
         return movies
