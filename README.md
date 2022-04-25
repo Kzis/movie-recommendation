@@ -79,7 +79,8 @@ There are many things to improve for this project.
 - Validation input and handle error.
 - Dockerfile for this project.
 - Use other model (I have little knowledge in this area).
-- Intergrate monitoring system
+- Intergrate monitoring system.
+- Clean code or use design pattern.
 
 # Optional
 
@@ -91,7 +92,10 @@ There are many things to improve for this project.
  should see 6 test is pass.
  
 2. This project have loadtest with Locust please start with :
+
+```sh
+   locust -f loadtest.py --host=http://localhost:8000
+   ```
+  Go to http://localhost:8089/ for loadtest
  
- ```sh
-    locust -f loadtest.py --host=http://localhost:8000
-     
+  
