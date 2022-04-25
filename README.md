@@ -73,7 +73,25 @@ I suggest to use Swagger-UI to feed input , But you can also use other tools tha
    Example output :
    ![image](https://user-images.githubusercontent.com/25294734/165156375-f2d0734b-5c81-416f-9ebf-5e1c28ab19fc.png)
 
-# Technology
-- Python 3.6
-- Flask
-- Tensorflow 1.15.0
+# How to improve in the future
+There are many things to improve for this project.
+- Use Redis for load global variable in setting.py file.
+- Validation input and handle error.
+- Dockerfile for this project.
+- Use other model (I have little knowledge in this area).
+- Intergrate monitoring system
+
+# Optional
+
+1. This project have a unittest if you want to run use this in root path :
+
+```sh
+   pytest
+   ```
+ should see 6 test is pass.
+ 
+2. This project have loadtest with Locust please start with :
+ 
+ ```sh
+    locust -f loadtest.py --host=http://localhost:8000
+     
