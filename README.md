@@ -34,10 +34,44 @@ I suggest to use conda to run on your computer. Follow the steps below.
 5. If you see this that's so beautiful lol.
 
 #  How to feed input and get output
-I suggest to use Swagger-UI to feed input , But you can also use other tools that you are good at, such as Postman or curl
+I suggest to use Swagger-UI to feed input , But you can also use other tools that you are good at, such as Postman or curl.
 
 1. Go to http://localhost:8000/docs you will see this Swagger-UI :
 ![image](https://user-images.githubusercontent.com/25294734/165154296-68a83605-326b-4b59-bd42-1c3667c0b1e3.png)
+
+2. For /Recommendations endpoint.
+   
+   Query parameter in url :
+   - userd_id (interger)
+   - returnMetada (boolean) - Optional parameter
+
+   Curl command example :
+   ```sh
+      curl -X 'GET' \
+     'http://localhost:8000/recommendations/?user_id=11&returnMetadata=true' \
+     -H 'accept: application/json'
+     ```
+   For Swagger-UI you can put Try it out btn and input your parameter and click Excecute btn.
+   
+   Example output :
+   ![image](https://user-images.githubusercontent.com/25294734/165156232-3890d36c-282b-43ec-a1ad-c5910ef53195.png)
+
+
+3. For /Features endpoint.
+   
+   Query parameter in url :
+   - userd_id (interger)
+
+   Curl command example :
+   ```sh
+      curl -X 'GET' \
+     'http://localhost:8000/features/?user_id=11' \
+     -H 'accept: application/json'
+     ```
+   For Swagger-UI you can put Try it out btn and input your parameter and click Excecute btn.
+   
+   Example output :
+   ![image](https://user-images.githubusercontent.com/25294734/165156375-f2d0734b-5c81-416f-9ebf-5e1c28ab19fc.png)
 
 # Technology
 - Python 3.6
