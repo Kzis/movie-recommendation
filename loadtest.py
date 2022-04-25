@@ -8,7 +8,7 @@ class LoadTestModel(HttpUser):
     @task
     def test_recommendations(self):
         self.client.get(
-            url='/recommendations/?user_id=1&returnMetadata=true'
+            url='/recommendations/?user_id=18&returnMetadata=true'
         )
         
     @task
