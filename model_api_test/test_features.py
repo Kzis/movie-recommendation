@@ -1,6 +1,7 @@
 from fastapi.testclient import TestClient
 from main import app
 from utility_package.csv_utlity import *
+import setting
 
 import sys
 sys.path.append('../.')
@@ -15,8 +16,10 @@ def test_get_features_without_userid():
 def test_get_features_with_userid():
     response = client.get("/features/?user_id=18")
     csv_utils = CSVUtils()
-    actual = csv_utils.read_ratings(18)
+    ratings = csv_utils.read_ratings_df()
+    unsort_actual =  ratings.loc[((ratings.rating>setting.get_threshold_rating()) & (ratings.userId==18))].movieId.to_list()
+    actual = sorted([int(ele) for ele in unsort_actual], reverse=True)
     expected = response.json()['features'][0]['histories']
     
-    assert 502 == len(expected)
+    assert len(actual) == len(expected)
     assert actual == expected

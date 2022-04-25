@@ -44,4 +44,14 @@ class CSVUtils:
         with open(file_path + 'tags.csv', newline='') as csvfile:
             df = pd.read_csv(csvfile)
             df_tags = df[ df["userId"] == userId]
-            return [int(ele) for ele in df_tags.movieId.to_list()]   
+            return [int(ele) for ele in df_tags.movieId.to_list()]  
+        
+    @staticmethod
+    def read_ratings_df():
+        ratings = pd.read_csv(file_path + 'ratings.csv')
+        return ratings
+    
+    @staticmethod
+    def read_movies_df():
+        movies = pd.read_csv(file_path + 'movies.csv')
+        return movies
